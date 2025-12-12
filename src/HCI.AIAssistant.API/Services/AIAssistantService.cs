@@ -15,9 +15,9 @@ public class AIAssistantService : IAIAssistantService
     {
         _secretsService = secretsService;
 
-        var endPoint = _secretsService.AIAssistantSecrets?.EndPoint;
-        var key = _secretsService.AIAssistantSecrets?.Key;
-        _id = _secretsService.AIAssistantSecrets?.Id;
+        var endPoint = _secretsService.AIAssistantSecrets?.EndPoint.Trim();
+        var key = _secretsService.AIAssistantSecrets?.Key.Trim();
+        _id = _secretsService.AIAssistantSecrets?.Id.Trim();
         if (string.IsNullOrWhiteSpace(endPoint) || string.IsNullOrWhiteSpace(key) || string.IsNullOrWhiteSpace(_id))
         {
             _assistantsClient = null;
